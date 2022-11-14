@@ -1,0 +1,328 @@
+- c: 	org.fulib.classmodel.ClassModel
+  classes: 	field 	man 	game 	player
+  defaultCollectionType: 	c1
+  defaultPropertyStyle: 	Bean
+  defaultRoleType: 	"java.util.ArrayList<%s>"
+  mainJavaDir: 	"src/main/java"
+  packageName: 	de.uniks.pmws2122.model
+  packageSrcFolder: 	"src/main/java/de/uniks/pmws2122/model"
+
+- field: 	org.fulib.classmodel.Clazz
+  attributes: 	field_coordinate
+  model: 	c
+  modified: 	false
+  name: 	Field
+  propertyStyle: 	Bean
+  roles: 	field_men 	field_right 	field_left 	field_bottom 	field_top 	field_game
+
+- man: 	org.fulib.classmodel.Clazz
+  attributes: 	man_color
+  model: 	c
+  modified: 	false
+  name: 	Man
+  propertyStyle: 	Bean
+  roles: 	man_position 	man_owner 	man_game
+
+- game: 	org.fulib.classmodel.Clazz
+  attributes: 	game_name 	game_phase
+  model: 	c
+  modified: 	false
+  name: 	Game
+  propertyStyle: 	Bean
+  roles: 	game_fields 	game_men 	game_players 	game_currentPlayer 	game_winner
+
+- player: 	org.fulib.classmodel.Clazz
+  attributes: 	player_name 	player_color 	player_action 	player_initialPlacedMen
+  model: 	c
+  modified: 	false
+  name: 	Player
+  propertyStyle: 	Bean
+  roles: 	player_men 	player_game 	player_currentGame 	player_wonGame 	player_previous 	player_next
+
+- c1: 	org.fulib.classmodel.CollectionType
+  implClass: 	class java.util.ArrayList
+  implTemplate: 	"java.util.ArrayList<%s>"
+  itf: 	org.fulib.classmodel.CollectionInterface.List
+  qualifiedImplName: 	java.util.ArrayList
+  simpleImplName: 	ArrayList
+
+- field_coordinate: 	org.fulib.classmodel.Attribute
+  clazz: 	field
+  id: 	Field_coordinate
+  modified: 	false
+  name: 	coordinate
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- field_men: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	field
+  id: 	Field_men
+  modified: 	false
+  name: 	men
+  other: 	man_position
+  propertyStyle: 	Bean
+
+- field_right: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	field
+  id: 	Field_right
+  modified: 	false
+  name: 	right
+  other: 	field_left
+  propertyStyle: 	Bean
+
+- field_left: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	field
+  id: 	Field_left
+  modified: 	false
+  name: 	left
+  other: 	field_right
+  propertyStyle: 	Bean
+
+- field_bottom: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	field
+  id: 	Field_bottom
+  modified: 	false
+  name: 	bottom
+  other: 	field_top
+  propertyStyle: 	Bean
+
+- field_top: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	field
+  id: 	Field_top
+  modified: 	false
+  name: 	top
+  other: 	field_bottom
+  propertyStyle: 	Bean
+
+- field_game: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	field
+  id: 	Field_game
+  modified: 	false
+  name: 	game
+  other: 	game_fields
+  propertyStyle: 	Bean
+
+- man_color: 	org.fulib.classmodel.Attribute
+  clazz: 	man
+  id: 	Man_color
+  modified: 	false
+  name: 	color
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- man_position: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	man
+  id: 	Man_position
+  modified: 	false
+  name: 	position
+  other: 	field_men
+  propertyStyle: 	Bean
+
+- man_owner: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	man
+  id: 	Man_owner
+  modified: 	false
+  name: 	owner
+  other: 	player_men
+  propertyStyle: 	Bean
+
+- man_game: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	man
+  id: 	Man_game
+  modified: 	false
+  name: 	game
+  other: 	game_men
+  propertyStyle: 	Bean
+
+- game_name: 	org.fulib.classmodel.Attribute
+  clazz: 	game
+  id: 	Game_name
+  modified: 	false
+  name: 	name
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- game_phase: 	org.fulib.classmodel.Attribute
+  clazz: 	game
+  id: 	Game_phase
+  modified: 	false
+  name: 	phase
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- game_fields: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	game
+  collectionType: 	c1
+  id: 	Game_fields
+  modified: 	false
+  name: 	fields
+  other: 	field_game
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- game_men: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	game
+  collectionType: 	c1
+  id: 	Game_men
+  modified: 	false
+  name: 	men
+  other: 	man_game
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- game_players: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	game
+  collectionType: 	c1
+  id: 	Game_players
+  modified: 	false
+  name: 	players
+  other: 	player_game
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- game_currentPlayer: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	game
+  id: 	Game_currentPlayer
+  modified: 	false
+  name: 	currentPlayer
+  other: 	player_currentGame
+  propertyStyle: 	Bean
+
+- game_winner: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	game
+  id: 	Game_winner
+  modified: 	false
+  name: 	winner
+  other: 	player_wonGame
+  propertyStyle: 	Bean
+
+- player_name: 	org.fulib.classmodel.Attribute
+  clazz: 	player
+  id: 	Player_name
+  modified: 	false
+  name: 	name
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- player_color: 	org.fulib.classmodel.Attribute
+  clazz: 	player
+  id: 	Player_color
+  modified: 	false
+  name: 	color
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- player_action: 	org.fulib.classmodel.Attribute
+  clazz: 	player
+  id: 	Player_action
+  modified: 	false
+  name: 	action
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- player_initialPlacedMen: 	org.fulib.classmodel.Attribute
+  clazz: 	player
+  id: 	Player_initialPlacedMen
+  modified: 	false
+  name: 	initialPlacedMen
+  propertyStyle: 	Bean
+  type: 	int
+  typeSignature: 	int
+
+- player_men: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	player
+  collectionType: 	c1
+  id: 	Player_men
+  modified: 	false
+  name: 	men
+  other: 	man_owner
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- player_game: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	player
+  id: 	Player_game
+  modified: 	false
+  name: 	game
+  other: 	game_players
+  propertyStyle: 	Bean
+
+- player_currentGame: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	player
+  id: 	Player_currentGame
+  modified: 	false
+  name: 	currentGame
+  other: 	game_currentPlayer
+  propertyStyle: 	Bean
+
+- player_wonGame: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	player
+  id: 	Player_wonGame
+  modified: 	false
+  name: 	wonGame
+  other: 	game_winner
+  propertyStyle: 	Bean
+
+- player_previous: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	player
+  id: 	Player_previous
+  modified: 	false
+  name: 	previous
+  other: 	player_next
+  propertyStyle: 	Bean
+
+- player_next: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	player
+  id: 	Player_next
+  modified: 	false
+  name: 	next
+  other: 	player_previous
+  propertyStyle: 	Bean
+
